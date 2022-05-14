@@ -20,7 +20,7 @@ public class Main {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String regex = "^русс.*|росс.*|расея|русь";
             return br.lines()
-                    .flatMap(line -> Arrays.stream(line.split("[- ,.();?!\"\\d:\\'«…»\\]\\[]")))
+                    .flatMap(line -> Arrays.stream(line.split("[- ,.[***]();?!\"\\d:\\'«…»\\]\\[]")))
                     .filter(line -> !line.isBlank())
                     .filter(line -> line.length() > 1)
                     .map(String::toLowerCase)
